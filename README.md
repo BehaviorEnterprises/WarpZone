@@ -32,7 +32,7 @@ one of the cost matrix, another of the cummulative cost matrix.  All newly
 created files will be saved in the current working directory.
 
 ```
-$ WarpZone file1 file2 ...
+$ zarpzone [ options ] file1 file2 ...
 ```
 
 Packaging
@@ -42,7 +42,7 @@ WarpZone includes a Makefile that accepts PREFIX, DESTDIR, and other standard
 compiler/linker flags
 
 ```bash
-git clone ...
+git clone https://github.com/BehaviorEnterprises/WarpZone.git
 cd warpzone
 make
 sudo make install
@@ -58,7 +58,6 @@ you find them.
 
 ### Todo
 
-1. Create spreadsheet output
-1. Add peak-frequency data export function to FEX
 1. Write man page
+
 
