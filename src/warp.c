@@ -14,25 +14,25 @@ int warp_calculate_cost(Warp *warp) {
 	uint64_t i, j;
 	for (j = 0; j < warp->s2.len; ++j)
 		for (i = 0; i < warp->s1.len; ++i)
-			POINT(warp->cost, i, j) = DISTANCE(warp->s1.data[i], warp->s2.data[j]);
+			POINT(&warp->cost, i, j) = DISTANCE(warp->s1.data[i], warp->s2.data[j]);
 	return 0;
 }
 
 int warp_calculate_cummulative(Warp *warp) {
 	uint64_t i, j;
-	POINT(warp->cummulative, 0, 0) = POINT(warp->cost, 0, 0);
+	POINT(&warp->cummulative, 0, 0) = POINT(&warp->cost, 0, 0);
 	for (i = 1; i < warp->s1.len; ++i)
-		POINT(warp->cummulative, i, 0) = POINT(warp->cost, i, 0) +
-				POINT(warp->cummulative, i - 1, 0);
+		POINT(&warp->cummulative, i, 0) = POINT(&warp->cost, i, 0) +
+				POINT(&warp->cummulative, i - 1, 0);
 	for (j = 1; j < warp->s2.len; ++j)
-		POINT(warp->cummulative, 0, j) = POINT(warp->cost, 0, j - 0);
-				POINT(warp->cummulative, 0, j - 1);
+		POINT(&warp->cummulative, 0, j) = POINT(&warp->cost, 0, j - 0);
+				POINT(&warp->cummulative, 0, j - 1);
 	for (j = 1; j < warp->s2.len; ++j)
 		for (i = 1; i < warp->s1.len; ++i)
-			POINT(warp->cummulative, i, j) = POINT(warp->cost, i, j) + MINIMUM(
-					POINT(warp->cummulative, i-1, j),
-					POINT(warp->cummulative, i, j-1),
-					POINT(warp->cummulative, i-1, j-1));
+			POINT(&warp->cummulative, i, j) = POINT(&warp->cost, i, j) + MINIMUM(
+					POINT(&warp->cummulative, i-1, j),
+					POINT(&warp->cummulative, i, j-1),
+					POINT(&warp->cummulative, i-1, j-1));
 }
 
 Warp *warp_create_from_files(const char *f1, const char *f2) {

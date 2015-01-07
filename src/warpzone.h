@@ -7,7 +7,7 @@
 #include <libgen.h>
 #include <fcntl.h>
 
-#define POINT(M,x,y)			M.data[x * M.w + y]
+#define POINT(M,x,y)			(M)->data[x * (M)->w + y]
 #define DISTANCE(a,b)		(a > b ? a - b : b - a)
 #define MINIMUM(a,b,c)		(a < b ? (a < c ? a : c) : (b < c ? b : c))
 
