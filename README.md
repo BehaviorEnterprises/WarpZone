@@ -32,7 +32,7 @@ one of the cost matrix, another of the cummulative cost matrix.  All newly
 created files will be saved in the current working directory.
 
 ```
-$ zarpzone [ options ] file1 file2 ...
+$ warpzone [ options ] file1 file2 ...
 ```
 
 Packaging
