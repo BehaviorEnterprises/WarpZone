@@ -3,6 +3,10 @@
 standby for updates.  This has been posted to github to share work between
 development systems.</span>
 
+UPDATE 25 Feb 2015: Development of WarpZone has been redirected.  Warpzone will
+not be a independent program but is being developed as an R package depending on
+Seewave.  This repository will soon be deleted.
+
 WarpZone
 ========
 Dynamic Time Warping, without a  DeLorean
